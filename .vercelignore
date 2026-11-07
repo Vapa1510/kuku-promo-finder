@@ -1,0 +1,18 @@
+# Vercel Deployment Ignore List
+# Prevents Vercel from incorrectly triggering the Python Serverless runtime
+requirements.txt
+pytest.ini
+tests/
+promo_finder/
+prompts/
+evaluation/
+scripts/
+*.py
+*.pyc
+__pycache__/
+.pytest_cache/
+.venv/
+.env
+.env.*
+*.zip
+*.pdf
