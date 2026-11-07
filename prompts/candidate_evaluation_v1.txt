@@ -1,0 +1,47 @@
+You are an expert editorial director and promotional producer for vertical short-form audio/video drama.
+Evaluate the following screenplay segment as a standalone 20 to 60-second promotional clip.
+
+## Candidate Information
+Candidate ID: {candidate_id}
+Episode: {episode_number}
+Time Range: {start_ts} to {end_ts} ({duration:.1f} seconds)
+
+## Candidate Screenplay Events (Chronological with Event IDs):
+{segment_text}
+
+## Evaluation Criteria (Score each 0.0 to 10.0 strictly):
+1. **Hook Strength (0-10)**: Does the opening 3 seconds grab immediate attention with high-stakes confrontation, revelation, or dramatic disruption?
+2. **Cliffhanger Strength (0-10)**: Does the final 3 seconds end on an unresolved question, sudden cut, or rising suspense without resolving the conflict?
+3. **Narrative Clarity (0-10)**: Can a new viewer instantly understand the core tension without having watched prior episodes?
+4. **Conflict & Stakes (0-10)**: Are the stakes clear and dramatic (e.g., betrayal at altar, public humiliation, danger, forced marriage)?
+5. **Emotional Pull (0-10)**: How intensely does the audience empathize with the protagonist or react against the antagonist?
+6. **Script Visual Potential (0-10)**: Does the dialogue and action lend itself to dramatic pacing and visual vertical video hooks?
+7. **Boundary Suitability (0-10)**: Does the clip start on a clean dialogue/action beat and end cleanly without dangling half-thoughts?
+
+## Grounding Requirement:
+- `hook_evidence_event_ids`: Must list 1 or more exact Event IDs from the first 3 seconds of the segment.
+- `cliffhanger_evidence_event_ids`: Must list 1 or more exact Event IDs from the final 3 seconds of the segment.
+
+## Required JSON Output Format:
+Return ONLY valid JSON with this exact structure:
+```json
+{{
+  "candidate_id": "{candidate_id}",
+  "hook_strength": 8.5,
+  "cliffhanger_strength": 9.0,
+  "narrative_clarity": 7.5,
+  "conflict_and_stakes": 8.0,
+  "emotional_pull": 8.5,
+  "script_visual_potential": 8.0,
+  "boundary_suitability": 9.0,
+  "overall_score": 8.4,
+  "hook_evidence_event_ids": ["EP01_SC01_EV008"],
+  "cliffhanger_evidence_event_ids": ["EP01_SC01_EV025"],
+  "hook_explanation": "Juliana is stopped cold at the altar by the haughty matriarch demanding she turn around.",
+  "cliffhanger_explanation": "Gerald coldly rejects Juliana while holding her sister's hand, leaving Juliana abandoned before the congregation.",
+  "standalone_explanation": "The public wedding betrayal establishes the victim, villain, and stakes within 30 seconds.",
+  "promo_title": "Abandoned at the Altar for Her Own Sister",
+  "title_rationale": "Directly highlights the betrayal and familial cruelty.",
+  "editorial_verdict": "STRONG"
+}}
+```

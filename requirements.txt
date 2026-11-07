@@ -1,0 +1,6 @@
+# Production dependencies for Advanced Hybrid AI Promo Finder
+pydantic>=2.10.0
+pytest>=8.0.0
+pyyaml>=6.0.0
+google-genai>=0.1.1
+tenacity>=8.0.0

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DramaPulse AI | Kuku FM Vertical Drama Promo Studio</title>
+  <meta name="description" content="End-to-End Vertical Drama Promo Selection & Production Studio for 'I Married a Broken Soldier. He was a Duke'">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation -->
+  <header class="top-nav">
+    <div class="app-container nav-content">
+      <div class="brand-wrapper">
+        <span class="brand-badge">KUKU FM AI</span>
+        <div>
+          <div class="brand-title">
+            <span>DramaPulse</span>
+            <span style="font-weight: 400; color: #94A3B8;">|</span>
+            <span style="font-size: 14px; color: var(--violet-primary); font-weight: 700;">Studio</span>
+          </div>
+          <div class="brand-subtitle">AI Generalist Assignment &bull; Problem 1: Find the Promos</div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div class="series-pill">
+          <div class="status-dot"></div>
+          <span>50 Episodes Ingested &bull; 168 Candidates Screened</span>
+        </div>
+        <button id="exportFeedbackBtn" class="btn-primary" style="padding: 7px 16px; font-size: 12.5px;">
+          <span>📥 Export Feedback CSV</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-container">
+
+    <!-- Hero Spotlight Section -->
+    <section class="hero-spotlight">
+      <div class="hero-grid">
+        <!-- Series Key Art Poster with Zoom -->
+        <div class="poster-card" onclick="window.DramaApp.openLightbox('series_poster')" title="Click to Zoom & View Series Key Art">
+          <img src="assets/images/series_poster.jpg" alt="I Married a Broken Soldier. He was a Duke">
+          <span class="poster-badge">OFFICIAL KEY ART</span>
+          <div class="poster-overlay-btn">🔍 Zoom Poster</div>
+        </div>
+
+        <!-- Series Narrative Metadata -->
+        <div class="hero-content">
+          <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+            <span class="ep-tag">50 EPISODES</span>
+            <span class="ep-tag" style="background: #FCE7F3; color: #BE185D;">REGENCY ROMANCE</span>
+            <span class="ep-tag" style="background: #EDE9FE; color: #6D28D9;">VERTICAL DRAMA</span>
+          </div>
+          <h1>I Married a Broken Soldier. He was a Duke</h1>
+          <p class="hero-synopsis">
+            Publicly humiliated and betrayed at the altar when her groom chooses her deceitful sister, <strong>Lady Juliana</strong> defies high society by accepting the sudden proposal of a scarred, impoverished veteran. Unbeknownst to her tormentors, her mysterious soldier husband is <strong>Alexander, Duke of Rochester</strong>, hunting traitors in disguise.
+          </p>
+
+          <!-- Character Avatars -->
+          <div class="character-avatars">
+            <div class="character-card">
+              <img src="assets/images/avatar_juliana.jpg" alt="Lady Juliana">
+              <div class="char-info">
+                <span class="char-name">Lady Juliana</span>
+                <span class="char-role">Defiant Bride</span>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <img src="assets/images/avatar_alexander.jpg" alt="Alexander">
+              <div class="char-info">
+                <span class="char-name">Duke Alexander</span>
+                <span class="char-role">The Broken Soldier</span>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <img src="assets/images/avatar_matriarch.jpg" alt="The Matriarch">
+              <div class="char-info">
+                <span class="char-name">The Matriarch</span>
+                <span class="char-role">Cruel Stepmother</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI Quick Stats Board -->
+        <div class="kpi-board">
+          <div class="kpi-title">
+            <span>PIPELINE KPI BENCHMARKS</span>
+            <span style="color: var(--emerald-primary); font-size: 11px;">● LIVE VERIFIED</span>
+          </div>
+          <div class="kpi-grid">
+            <div class="kpi-item">
+              <div class="kpi-num">30</div>
+              <div class="kpi-label">Top Qualified Promos</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num">40.0<span>%</span></div>
+              <div class="kpi-label">Precision @ K=5</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num">1.2<span>s</span></div>
+              <div class="kpi-label">Boundary Start MAE</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num" id="kpiPassRate">100<span>%</span></div>
+              <div class="kpi-label">Editorial Approval Rate</div>
+            </div>
+          </div>
+          <div style="font-size: 11.5px; color: var(--text-muted); display: flex; justify-content: space-between;">
+            <span>Runtime: <strong>2.05s</strong> (Dual Gemini 3.5)</span>
+            <span>Reviewed: <strong id="kpiApprovedCount">0</strong> / 30</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs Bar -->
+    <nav class="tabs-bar">
+      <button class="tab-btn active" data-tab="showcase">
+        <span>🎬 Top Promos Showcase</span>
+        <span class="tab-count-badge" id="tabShowcaseCount">30</span>
+      </button>
+      <button class="tab-btn" data-tab="radar">
+        <span>📊 7-Dimension Radar Diagnostics</span>
+      </button>
+      <button class="tab-btn" data-tab="audit">
+        <span>🔍 Full Candidate Audit Trail</span>
+        <span class="tab-count-badge" style="background: #F1F5F9; color: #475569;">168</span>
+      </button>
+      <button class="tab-btn" data-tab="benchmark">
+        <span>🎯 Benchmark & Evaluation Metrics</span>
+      </button>
+      <button class="tab-btn" data-tab="editorial">
+        <span>✍️ Editorial Review Hub</span>
+      </button>
+    </nav>
+
+    <!-- TAB 1: SHOWCASE VIEW -->
+    <div id="tabContentShowcase">
+      <!-- Filter & Search Controls Bar -->
+      <section class="filter-bar">
+        <div class="filter-group">
+          <!-- View Mode Switcher -->
+          <div class="view-mode-group">
+            <button class="mode-btn active" data-mode="top30">Top 30 Curated</button>
+            <button class="mode-btn" data-mode="top5">Top 5 Golden Cuts</button>
+            <button class="mode-btn" data-mode="passed">All 89 Passed</button>
+            <button class="mode-btn" data-mode="all">All 168 Screened</button>
+          </div>
+
+          <!-- Search Box -->
+          <div class="search-input-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search titles, dialogue quotes, keywords...">
+          </div>
+
+          <!-- Episode Dropdown -->
+          <select id="episodeSelect" class="custom-select">
+            <option value="all">All Episodes</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <!-- Duration Select -->
+          <select id="durationSelect" class="custom-select">
+            <option value="all">Any Duration (20s - 60s)</option>
+            <option value="short">Quick Hook (&lt; 35s)</option>
+            <option value="medium">Standard (35s - 45s)</option>
+            <option value="long">Deep Narrative (&gt; 45s)</option>
+          </select>
+
+          <!-- Verdict Select -->
+          <select id="verdictSelect" class="custom-select">
+            <option value="all">All Verdicts</option>
+            <option value="MUST INCLUDE">MUST INCLUDE</option>
+            <option value="STRONG">STRONG</option>
+            <option value="APPROVED">My Approved</option>
+            <option value="RECUT">My Recut Requests</option>
+            <option value="REJECTED">My Rejected</option>
+          </select>
+
+          <!-- Sort Select -->
+          <select id="sortSelect" class="custom-select">
+            <option value="rank">Sort: Rank (Best First)</option>
+            <option value="score_desc">Sort: Score (Highest First)</option>
+            <option value="hook">Sort: Hook Strength</option>
+            <option value="cliffhanger">Sort: Cliffhanger Climax</option>
+            <option value="duration_desc">Sort: Duration (Longest)</option>
+            <option value="duration_asc">Sort: Duration (Shortest)</option>
+            <option value="episode">Sort: Episode Number</option>
+          </select>
+
+          <!-- Score Range Slider -->
+          <div style="display: flex; align-items: center; gap: 8px; background: white; padding: 6px 14px; border-radius: 99px; border: 1px solid var(--border-light); font-size: 12px; font-weight: 600;">
+            <label for="scoreRange" style="color: var(--text-secondary);">Min Score:</label>
+            <input type="range" id="scoreRange" min="5.0" max="9.5" step="0.1" value="5.0" style="width: 80px; accent-color: var(--violet-primary); cursor: pointer;">
+            <span id="scoreValueDisplay" style="color: var(--violet-primary); font-weight: 700; min-width: 28px;">5.0+</span>
+          </div>
+
+          <span id="resultsCountBadge" style="font-size: 12px; font-weight: 700; color: var(--text-muted); padding: 4px 8px;">30 clips found</span>
+        </div>
+      </section>
+
+      <!-- Main Stage: Grid of Promo Cards + Sticky Phone Simulator -->
+      <section class="main-stage-grid">
+        <!-- Left: Promo Cards Grid -->
+        <div id="promoCardsGrid" class="promo-cards-grid">
+          <!-- Cards populated dynamically by app.js -->
+        </div>
+
+        <!-- Right: Interactive 9:16 Vertical Phone Simulator -->
+        <div id="phoneSimulatorBox" class="phone-simulator-sticky">
+          <div class="phone-wrapper">
+            <div class="phone-header-controls">
+              <span class="phone-title">
+                <span>📱 9:16 Video Player</span>
+              </span>
+              <span id="hookLivePill" class="hook-live-pill">⚡ LIVE HOOK (0-3s)</span>
+            </div>
+
+            <!-- Smartphone Frame -->
+            <div class="smartphone-frame">
+              <!-- Notch / Dynamic Island -->
+              <div class="phone-island">
+                <div class="phone-camera-lens"></div>
+              </div>
+
+              <!-- Phone Screen Stage -->
+              <div class="phone-screen">
+                <img id="phoneBgImage" class="phone-bg-image" src="assets/images/scene_ep41_cathedral.jpg" alt="Preview Scene">
+                <div class="phone-screen-scrim"></div>
+
+                <!-- Status Bar -->
+                <div class="phone-status-bar">
+                  <span>9:41</span>
+                  <span>5G 📶 100% 🔋</span>
+                </div>
+
+                <!-- Top Overlay Badges -->
+                <div class="phone-top-overlay">
+                  <span class="kuku-badge">KUKU DRAMA</span>
+                  <span id="phoneEpBadge" style="color: white; font-size: 11px; font-weight: 800; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">EPISODE 41</span>
+                </div>
+
+                <!-- Subtitle Captions Overlay -->
+                <div id="phoneCaptionBox" class="phone-caption-box">
+                  <div id="captionSpeaker" class="caption-speaker">Lady Juliana</div>
+                  <div id="captionText" class="caption-text">"You needed an entire chapel to feel powerful over one chained woman?"</div>
+                </div>
+
+                <!-- Social Actions Rail -->
+                <div class="phone-social-rail">
+                  <button id="phoneLikeBtn" class="social-action-btn" title="Like Clip">
+                    <div class="social-icon-bubble">❤️</div>
+                    <span id="phoneLikeCount" class="social-count">14.2k</span>
+                  </button>
+                  <button class="social-action-btn" title="Comments">
+                    <div class="social-icon-bubble">💬</div>
+                    <span class="social-count">842</span>
+                  </button>
+                  <button class="social-action-btn" title="Share Clip">
+                    <div class="social-icon-bubble">↗️</div>
+                    <span class="social-count">2.1k</span>
+                  </button>
+                </div>
+
+                <!-- Bottom Scrubber & Audio Waveform Controls -->
+                <div class="phone-bottom-bar">
+                  <div id="phoneTitle" style="color: white; font-size: 12px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">Interrupted at the Altar</div>
+
+                  <!-- Timeline Scrubber -->
+                  <div id="timelineScrubber" class="timeline-scrubber" title="Click or Drag to Scrub">
+                    <div id="timelineFill" class="timeline-fill"></div>
+                    <div id="timelineHandle" class="timeline-handle"></div>
+                  </div>
+
+                  <!-- Web Audio Animated Waveform Canvas -->
+                  <div class="waveform-canvas-box" title="Real-time Web Audio Synthesizer Visualizer">
+                    <canvas id="phoneWaveformCanvas" width="280" height="24"></canvas>
+                  </div>
+
+                  <!-- Playback Controls -->
+                  <div class="playback-controls-row">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <button id="phonePlayBtn" class="phone-play-btn" title="Play / Pause Audio Simulation">▶</button>
+                      <button id="phoneMuteBtn" class="phone-mute-btn" title="Mute / Unmute Sound Engine">🔊</button>
+                    </div>
+                    <div class="phone-time-display">
+                      <span id="phoneCurrentTime">00:00</span> / <span id="phoneTotalTime">00:38</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phone Footer Tip -->
+            <div style="margin-top: 12px; font-size: 11.5px; color: var(--text-muted); text-align: center;">
+              💡 <em>Click any card to play in phone frame with procedural cinematic audio & synced captions</em>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB 2: RADAR & NARRATIVE DIAGNOSTICS -->
+    <div id="tabContentRadar" style="display: none; padding: 24px 0 48px;">
+      <div style="background: white; border-radius: 20px; border: 1px solid var(--border-light); padding: 32px; box-shadow: var(--shadow-md);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <h2 style="font-size: 22px; font-weight: 800; color: var(--text-primary);">7-Dimension Narrative Scoring Diagnostics</h2>
+            <p style="font-size: 14px; color: var(--text-secondary); margin-top: 4px;">Multidimensional evaluation across Hook, Cliffhanger, Clarity, Stakes, Emotionality, Visuals, and Boundaries.</p>
+          </div>
+          <!-- View Mode Toggle (Radar vs Bar Comparison) -->
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <button id="radarModeWebBtn" class="chart-mode-pill active">🕸 Radar Web</button>
+            <button id="radarModeBarBtn" class="chart-mode-pill">📊 Bar Comparison</button>
+          </div>
+        </div>
+
+        <!-- Candidate Selector & Action Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-subtle); padding: 12px 18px; border-radius: 12px; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <label for="radarPromoSelect" style="font-size: 12.5px; font-weight: 700; color: var(--text-secondary);">Analyzing Candidate:</label>
+            <select id="radarPromoSelect" class="custom-select" style="min-width: 320px; font-size: 12.5px;">
+              <!-- Populated by app.js -->
+            </select>
+          </div>
+          <button id="radarPlayCurrentBtn" class="preview-btn" style="padding: 7px 16px; font-size: 12.5px;">
+            <span>▶ Play in Phone Player</span>
+          </button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 460px 1fr; gap: 40px; align-items: center;">
+          <!-- Interactive SVG Radar Canvas -->
+          <div id="radarChartContainer" style="display: flex; justify-content: center; align-items: center; background: #FAF5FF; padding: 20px; border-radius: 16px; border: 1px dashed rgba(124, 58, 237, 0.3);">
+            <!-- SVG rendered by charts.js -->
+          </div>
+
+          <!-- Dimension Breakdown List -->
+          <div id="radarBreakdownList" style="display: flex; flex-direction: column; gap: 12px;">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: FULL CANDIDATE AUDIT TRAIL (168 CANDIDATES) -->
+    <div id="tabContentAudit" style="display: none; padding: 24px 0 48px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <h2 style="font-size: 20px; font-weight: 800; color: var(--text-primary);">Candidate Audit Trail (168 Screened Segments)</h2>
+          <p style="font-size: 13px; color: var(--text-secondary);">Full transparent record of every candidate segment extracted and screened across all 50 episodes.</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <input type="text" id="auditSearchInput" class="search-input" placeholder="Search ID or title..." style="max-width: 200px; padding: 7px 14px;">
+          <select id="auditEpisodeSelect" class="custom-select" style="font-size: 12px; padding: 7px 14px;">
+            <option value="all">All Episodes</option>
+          </select>
+          <select id="auditGateFilter" class="custom-select" style="font-size: 12px; padding: 7px 14px;">
+            <option value="all">Show All (168 Candidates)</option>
+            <option value="passed">Passed Quality Gates (89 Candidates)</option>
+            <option value="rejected">Rejected by Quality Gates (79 Candidates)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="editorial-table-wrap">
+        <table class="editorial-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Candidate ID</th>
+              <th>Ep</th>
+              <th>Promo Title</th>
+              <th>Timecode</th>
+              <th>Duration</th>
+              <th>Score</th>
+              <th>Gate Status</th>
+              <th>Quality Gate Diagnostics</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="auditTableBody">
+            <!-- Populated by app.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 4: BENCHMARK & EVALUATION METRICS -->
+    <div id="tabContentBenchmark" style="display: none; padding: 24px 0 48px;">
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div style="background: white; border-radius: 20px; border: 1px solid var(--border-light); padding: 28px; box-shadow: var(--shadow-sm);">
+          <h2 style="font-size: 20px; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;">Independent Ground Truth Benchmark Report</h2>
+          <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 20px;">Evaluated against human-annotated golden standard ground truth test set with boundary metrics.</p>
+
+          <div id="benchmarkMetricsGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+            <!-- Populated by app.js -->
+          </div>
+
+          <h3 style="font-size: 16px; font-weight: 800; color: var(--text-primary); margin: 24px 0 12px;">Evaluation Metric Matrix Across Ranks (K=5 to K=30)</h3>
+          <div class="editorial-table-wrap">
+            <table class="editorial-table">
+              <thead>
+                <tr>
+                  <th>Cut-off Rank</th>
+                  <th>Precision @ K</th>
+                  <th>Recall @ K</th>
+                  <th>NDCG Score</th>
+                  <th>Ground Truth Hits</th>
+                  <th>Benchmark Notes</th>
+                </tr>
+              </thead>
+              <tbody id="benchmarkMatrixTableBody">
+                <!-- Populated by app.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Pipeline Architecture Provenance -->
+        <div style="background: white; border-radius: 20px; border: 1px solid var(--border-light); padding: 28px; box-shadow: var(--shadow-sm);">
+          <h3 style="font-size: 18px; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">Dual-Model Judge & Selection Architecture</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 16px;">
+            <div style="background: #F8FAFC; padding: 16px; border-radius: 12px; border-left: 4px solid var(--violet-primary);">
+              <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Tier 1: Multi-Candidate Generator</div>
+              <div style="font-size: 12.5px; color: var(--text-secondary); margin-top: 4px;">4 candidates per episode using scene boundary detection, high hook density markers, and speech event alignment.</div>
+            </div>
+            <div style="background: #F8FAFC; padding: 16px; border-radius: 12px; border-left: 4px solid var(--rose-primary);">
+              <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Tier 2: Quality Gates & Gating Rules</div>
+              <div style="font-size: 12.5px; color: var(--text-secondary); margin-top: 4px;">Rejects weak hooks (&lt;6.0), weak cliffhangers (&lt;6.0), out-of-range durations (&lt;20s or &gt;60s), and premature resolution leaks.</div>
+            </div>
+            <div style="background: #F8FAFC; padding: 16px; border-radius: 12px; border-left: 4px solid var(--emerald-primary);">
+              <div style="font-weight: 700; font-size: 14px; color: var(--text-primary);">Tier 3: Dual Gemini Judge & NMS</div>
+              <div style="font-size: 12.5px; color: var(--text-secondary); margin-top: 4px;">Arbitrated scoring (35% Candidate Evaluator + 65% LLM Judge) with Non-Maximum Suppression (IoU 0.4) to eliminate overlap.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: EDITORIAL REVIEW HUB -->
+    <div id="tabContentEditorial" style="display: none; padding: 24px 0 48px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <h2 style="font-size: 20px; font-weight: 800; color: var(--text-primary);">Human Editorial Review Tracking</h2>
+          <p style="font-size: 13px; color: var(--text-secondary);">Approve, request recut, or reject clips. Decisions persist locally and export directly to production CSV.</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 6px; background: white; padding: 4px; border-radius: 99px; border: 1px solid var(--border-light);">
+            <button class="editorial-filter-pill active" data-ed-filter="all">All (<span id="edFilterAllCount">89</span>)</button>
+            <button class="editorial-filter-pill" data-ed-filter="PENDING">Pending (<span id="edFilterPendingCount">89</span>)</button>
+            <button class="editorial-filter-pill" data-ed-filter="APPROVED">Approved (<span id="edFilterApprovedCount">0</span>)</button>
+            <button class="editorial-filter-pill" data-ed-filter="RECUT">Recut (<span id="edFilterRecutCount">0</span>)</button>
+            <button class="editorial-filter-pill" data-ed-filter="REJECTED">Rejected (<span id="edFilterRejectedCount">0</span>)</button>
+          </div>
+          <button onclick="document.getElementById('exportFeedbackBtn').click()" class="btn-primary" style="padding: 8px 18px; font-size: 13px;">
+            <span>📥 Download Updated human_feedback.csv</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="editorial-table-wrap">
+        <table class="editorial-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Candidate ID</th>
+              <th>Ep</th>
+              <th>Promo Title</th>
+              <th>Duration</th>
+              <th>Score</th>
+              <th>Status</th>
+              <th>Editorial Notes</th>
+              <th>Decisions & Actions</th>
+            </tr>
+          </thead>
+          <tbody id="editorialTableBody">
+            <!-- Populated by app.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Fullscreen Lightbox Modal with Zoom-In / Zoom-Out -->
+  <div id="lightboxModal" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span id="modalScoreBadge" class="score-badge score-high">Score: 9.3 / 10</span>
+          <div>
+            <h3 id="modalTitle" style="font-size: 17px; font-weight: 800; color: var(--text-primary);">Promo Preview</h3>
+            <span id="modalEpBadge" style="font-size: 12px; color: var(--text-muted); font-weight: 600;">EPISODE 41</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button id="modalPlayInPhoneBtn" class="preview-btn" style="padding: 6px 14px; font-size: 12px;">
+            <span>▶ Play in Phone Player</span>
+          </button>
+          <button id="modalCloseBtn" class="modal-close-btn" title="Close Modal">&times;</button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <!-- Left: Zoomable Visual Canvas -->
+        <div class="modal-visual-stage">
+          <div class="zoom-image-container">
+            <img id="lightboxImage" src="assets/images/series_poster.jpg" alt="Scene Still">
+          </div>
+
+          <!-- Floating Zoom Controls -->
+          <div class="zoom-controls-floating">
+            <button id="zoomOutBtn" class="zoom-btn" title="Zoom Out">−</button>
+            <span id="zoomLevelText" class="zoom-level-text">100%</span>
+            <button id="zoomInBtn" class="zoom-btn" title="Zoom In">+</button>
+            <button id="zoomResetBtn" class="zoom-btn" style="font-size: 11px; padding: 0 4px;" title="Reset Zoom">Reset</button>
+          </div>
+        </div>
+
+        <!-- Right: Screenplay Transcript & Event Audit -->
+        <div class="modal-details-pane">
+          <div>
+            <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; margin-bottom: 6px;">Opening Hook & Climax Quotes</h4>
+            <div style="background: var(--bg-subtle); padding: 12px; border-radius: var(--radius-md); font-size: 12.5px; border-left: 3px solid var(--violet-primary);">
+              <div><strong>Open:</strong> <span id="modalOpenQuote"></span></div>
+              <div style="margin-top: 6px;"><strong>Climax:</strong> <span id="modalCloseQuote"></span></div>
+            </div>
+          </div>
+
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; margin-bottom: 8px;">Full Screenplay Event Transcript</h4>
+            <div id="modalTranscriptList" class="event-transcript-list">
+              <!-- Event summary lines -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/audio-synth.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/app.js"></script>
+
+</body>
+</html>

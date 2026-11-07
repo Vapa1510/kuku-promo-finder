@@ -1,0 +1,19 @@
+{
+  "name": "kukufm-dramapulse-studio",
+  "version": "1.0.0",
+  "description": "Interactive Vertical Drama Promo Finder Studio for Kuku FM AI Generalist Assignment",
+  "scripts": {
+    "start": "node -e \"const http=require('http'),fs=require('fs'),path=require('path');http.createServer((req,res)=>{let u=req.url.split('?')[0];let f=u==='/'?'index.html':u.replace(/^\\//,'');f=path.resolve(f);if(!fs.existsSync(f)||fs.statSync(f).isDirectory()){f=path.resolve('index.html');}let mime={'html':'text/html','css':'text/css','js':'application/javascript','jpg':'image/jpeg','png':'image/png','json':'application/json'}[f.split('.').pop()]||'text/plain';res.writeHead(200,{'Content-Type':mime});fs.createReadStream(f).pipe(res);}).listen(3000,()=>console.log('DramaPulse Studio running at http://localhost:3000'));\"",
+    "build": "node scripts/build_data.js",
+    "test": "node test_ui.js"
+  },
+  "keywords": [
+    "kukufm",
+    "vertical-drama",
+    "promo-finder",
+    "ai-generalist",
+    "ui"
+  ],
+  "author": "Kuku FM AI Candidate",
+  "license": "MIT"
+}

@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-11-07T21:45:18.476417+00:00",
+  "total_runtime_seconds": 2.05,
+  "input_folder": "I Married a Broken Soldier. He was a Duke-scripts (2)\\I Married a Broken Soldier. He was a Duke",
+  "output_folder": "outputs",
+  "total_episodes_parsed": 50,
+  "total_candidates_detected": 168,
+  "total_candidates_screened": 168,
+  "top_qualified_promos_count": 5,
+  "configuration": {
+    "min_duration": 20.0,
+    "max_duration": 60.0,
+    "candidates_per_episode": 4,
+    "include_exploratory_candidate": true,
+    "weights": {
+      "hook": 0.2,
+      "cliffhanger": 0.2,
+      "clarity": 0.15,
+      "conflict": 0.15,
+      "emotion": 0.1,
+      "visual": 0.1,
+      "boundary": 0.1
+    },
+    "gates": {
+      "min_hook": 6.0,
+      "min_cliffhanger": 6.0,
+      "min_clarity": 5.0,
+      "min_duration": 20.0,
+      "max_duration": 60.0,
+      "reject_resolution_leaked": true
+    },
+    "evaluator_weight": 0.35,
+    "judge_weight": 0.65,
+    "iou_threshold": 0.4,
+    "max_per_episode": 2,
+    "top_n": 5,
+    "gemini_model": "gemini-3.5-flash",
+    "judge_model": "gemini-3.5-flash",
+    "temperature": 0.2,
+    "max_retries": 3,
+    "retry_delay_seconds": 2.0,
+    "cache_dir": ".cache",
+    "enable_cache": true,
+    "enable_llm": true,
+    "enable_multisegment": false
+  },
+  "llm_mode_active": false
+}

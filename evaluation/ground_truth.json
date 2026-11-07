@@ -1,0 +1,207 @@
+{
+  "benchmark_version": "1.0.0",
+  "total_ground_truth_promos": 20,
+  "description": "Expert editor-annotated promotional benchmark clips from 'I Married a Broken Soldier. He was a Duke'.",
+  "ground_truth_promos": [
+    {
+      "benchmark_id": "GT_EP01_01",
+      "episode_number": 1,
+      "target_start_seconds": 11.30,
+      "target_end_seconds": 65.60,
+      "acceptable_start_range": [8.0, 15.0],
+      "acceptable_end_range": [60.0, 68.0],
+      "core_narrative_hook": "Juliana discovers fiancé Gerald abandoning her to marry her sister Clarissa at the cathedral altar.",
+      "critical_tags": ["betrayal", "altar", "humiliation", "wedding"]
+    },
+    {
+      "benchmark_id": "GT_EP01_02",
+      "episode_number": 1,
+      "target_start_seconds": 21.80,
+      "target_end_seconds": 74.30,
+      "acceptable_start_range": [15.0, 25.0],
+      "acceptable_end_range": [70.0, 80.0],
+      "core_narrative_hook": "Juliana is stopped cold by the matriarch in the aisle as Gerald holds Clarissa's hand.",
+      "critical_tags": ["altar", "confrontation", "wedding"]
+    },
+    {
+      "benchmark_id": "GT_EP02_01",
+      "episode_number": 2,
+      "target_start_seconds": 0.00,
+      "target_end_seconds": 27.40,
+      "acceptable_start_range": [0.0, 5.0],
+      "acceptable_end_range": [24.0, 32.0],
+      "core_narrative_hook": "Immediate aftermath of Gerald's public rejection at the cathedral.",
+      "critical_tags": ["altar", "fallout", "disgrace"]
+    },
+    {
+      "benchmark_id": "GT_EP02_02",
+      "episode_number": 2,
+      "target_start_seconds": 63.60,
+      "target_end_seconds": 110.00,
+      "acceptable_start_range": [58.0, 68.0],
+      "acceptable_end_range": [105.0, 115.0],
+      "core_narrative_hook": "Juliana's family expels her, declaring her abandoned and disinherited.",
+      "critical_tags": ["abandoned", "family_cruelty", "disinheritance"]
+    },
+    {
+      "benchmark_id": "GT_EP03_01",
+      "episode_number": 3,
+      "target_start_seconds": 96.50,
+      "target_end_seconds": 140.30,
+      "acceptable_start_range": [90.0, 100.0],
+      "acceptable_end_range": [135.0, 145.0],
+      "core_narrative_hook": "A hooded wounded soldier steps forward, defends Juliana from public humiliation, and offers a surprise marriage proposal.",
+      "critical_tags": ["altar", "proposal", "soldier", "defense"]
+    },
+    {
+      "benchmark_id": "GT_EP03_02",
+      "episode_number": 3,
+      "target_start_seconds": 62.40,
+      "target_end_seconds": 91.60,
+      "acceptable_start_range": [58.0, 68.0],
+      "acceptable_end_range": [88.0, 98.0],
+      "core_narrative_hook": "Juliana accepts the broken soldier's hand at the altar.",
+      "critical_tags": ["altar", "vows", "soldier"]
+    },
+    {
+      "benchmark_id": "GT_EP04_01",
+      "episode_number": 4,
+      "target_start_seconds": 32.10,
+      "target_end_seconds": 85.80,
+      "acceptable_start_range": [28.0, 38.0],
+      "acceptable_end_range": [80.0, 90.0],
+      "core_narrative_hook": "Juliana faces down the congregation with unyielding defiance.",
+      "critical_tags": ["altar", "defiance", "nobility"]
+    },
+    {
+      "benchmark_id": "GT_EP06_01",
+      "episode_number": 6,
+      "target_start_seconds": 7.20,
+      "target_end_seconds": 33.70,
+      "acceptable_start_range": [0.0, 10.0],
+      "acceptable_end_range": [28.0, 35.0],
+      "core_narrative_hook": "The mysterious bearded soldier pauses in the rain: 'I know this is not the life you came from.'",
+      "critical_tags": ["rain", "mystery", "gentle"]
+    },
+    {
+      "benchmark_id": "GT_EP09_01",
+      "episode_number": 9,
+      "target_start_seconds": 39.90,
+      "target_end_seconds": 87.40,
+      "acceptable_start_range": [35.0, 45.0],
+      "acceptable_end_range": [82.0, 92.0],
+      "core_narrative_hook": "Alexander's scarred past and hidden chain crest are uncovered.",
+      "critical_tags": ["chain", "secret", "alexander"]
+    },
+    {
+      "benchmark_id": "GT_EP22_01",
+      "episode_number": 22,
+      "target_start_seconds": 91.50,
+      "target_end_seconds": 128.80,
+      "acceptable_start_range": [86.0, 96.0],
+      "acceptable_end_range": [124.0, 134.0],
+      "core_narrative_hook": "Juliana is recognized as the rightful Duchess of the grand estate.",
+      "critical_tags": ["duchess", "estate", "revelation"]
+    },
+    {
+      "benchmark_id": "GT_EP23_01",
+      "episode_number": 23,
+      "target_start_seconds": 32.00,
+      "target_end_seconds": 84.00,
+      "acceptable_start_range": [28.0, 36.0],
+      "acceptable_end_range": [78.0, 88.0],
+      "core_narrative_hook": "Prudence attempts to challenge Juliana's rank before the household.",
+      "critical_tags": ["duchess", "authority", "confrontation"]
+    },
+    {
+      "benchmark_id": "GT_EP24_01",
+      "episode_number": 24,
+      "target_start_seconds": 13.00,
+      "target_end_seconds": 57.60,
+      "acceptable_start_range": [8.0, 18.0],
+      "acceptable_end_range": [52.0, 62.0],
+      "core_narrative_hook": "High society noblewoman sneers at Juliana until royal seals are revealed.",
+      "critical_tags": ["duchess", "nobility", "scorn"]
+    },
+    {
+      "benchmark_id": "GT_EP27_01",
+      "episode_number": 27,
+      "target_start_seconds": 32.10,
+      "target_end_seconds": 61.80,
+      "acceptable_start_range": [28.0, 36.0],
+      "acceptable_end_range": [58.0, 66.0],
+      "core_narrative_hook": "Juliana asks: 'He told me he was only a sergeant... who is he really?'",
+      "critical_tags": ["duchess", "secret_identity", "sergeant"]
+    },
+    {
+      "benchmark_id": "GT_EP28_01",
+      "episode_number": 28,
+      "target_start_seconds": 15.30,
+      "target_end_seconds": 75.10,
+      "acceptable_start_range": [10.0, 20.0],
+      "acceptable_end_range": [70.0, 80.0],
+      "core_narrative_hook": "Juliana confronts the truth of the War Duke's iron chains.",
+      "critical_tags": ["chain", "duke", "truth"]
+    },
+    {
+      "benchmark_id": "GT_EP31_01",
+      "episode_number": 31,
+      "target_start_seconds": 14.00,
+      "target_end_seconds": 52.00,
+      "acceptable_start_range": [10.0, 18.0],
+      "acceptable_end_range": [48.0, 56.0],
+      "core_narrative_hook": "Catherine corners Juliana, threatening her with ruin before the church.",
+      "critical_tags": ["catherine", "altar", "threat"]
+    },
+    {
+      "benchmark_id": "GT_EP32_01",
+      "episode_number": 32,
+      "target_start_seconds": 103.80,
+      "target_end_seconds": 148.10,
+      "acceptable_start_range": [98.0, 108.0],
+      "acceptable_end_range": [142.0, 154.0],
+      "core_narrative_hook": "Juliana is dragged away in chains as enemies celebrate prematurely.",
+      "critical_tags": ["chains", "danger", "peril"]
+    },
+    {
+      "benchmark_id": "GT_EP36_01",
+      "episode_number": 36,
+      "target_start_seconds": 96.80,
+      "target_end_seconds": 141.50,
+      "acceptable_start_range": [90.0, 102.0],
+      "acceptable_end_range": [136.0, 146.0],
+      "core_narrative_hook": "Alexander is surrounded by royal guards and placed under arrest.",
+      "critical_tags": ["arrested", "alexander", "cliffhanger"]
+    },
+    {
+      "benchmark_id": "GT_EP37_01",
+      "episode_number": 37,
+      "target_start_seconds": 66.50,
+      "target_end_seconds": 119.80,
+      "acceptable_start_range": [60.0, 72.0],
+      "acceptable_end_range": [115.0, 125.0],
+      "core_narrative_hook": "Nobleman demands the iron chains be struck from the prisoner.",
+      "critical_tags": ["chains", "nobleman", "confrontation"]
+    },
+    {
+      "benchmark_id": "GT_EP41_01",
+      "episode_number": 41,
+      "target_start_seconds": 58.00,
+      "target_end_seconds": 96.09,
+      "acceptable_start_range": [55.0, 62.0],
+      "acceptable_end_range": [94.0, 98.0],
+      "core_narrative_hook": "Juliana stands in chains confronting Catherine before an explosion breaches the cathedral.",
+      "critical_tags": ["catherine", "altar", "chains", "explosion"]
+    },
+    {
+      "benchmark_id": "GT_EP45_01",
+      "episode_number": 45,
+      "target_start_seconds": 43.80,
+      "target_end_seconds": 70.50,
+      "acceptable_start_range": [38.0, 48.0],
+      "acceptable_end_range": [66.0, 76.0],
+      "core_narrative_hook": "Juliana stands at the altar as justice turns against her corrupt accusers.",
+      "critical_tags": ["altar", "triumph", "justice"]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+You are a creative marketing copywriter specializing in viral short-form audio drama trailers.
+Given the promotional candidate events below, generate a compelling, click-worthy promo title (max 8 words) and brief rationale.
+
+## Candidate Information
+Episode: {episode_number}
+Duration: {duration:.1f}s
+
+## Dialogue & Action:
+{segment_text}
+
+## Required JSON Output:
+```json
+{{
+  "promo_title": "Abandoned at the Altar for Her Cruel Sister",
+  "title_rationale": "Focuses on the high-emotion betrayal and familial rivalry."
+}}
+```

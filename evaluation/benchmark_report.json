@@ -1,0 +1,34 @@
+{
+  "total_ground_truth": 20,
+  "total_predictions": 5,
+  "metrics_at_k": {
+    "K=5": {
+      "precision": 0.4,
+      "recall": 0.1,
+      "ndcg": 0.345,
+      "hits": 2
+    },
+    "K=10": {
+      "precision": 0.2,
+      "recall": 0.1,
+      "ndcg": 0.224,
+      "hits": 2
+    },
+    "K=20": {
+      "precision": 0.1,
+      "recall": 0.1,
+      "ndcg": 0.145,
+      "hits": 2
+    },
+    "K=30": {
+      "precision": 0.067,
+      "recall": 0.1,
+      "ndcg": 0.145,
+      "hits": 2
+    }
+  },
+  "boundary_mae": {
+    "start_seconds_mae": 1.2,
+    "end_seconds_mae": 0.0
+  }
+}
